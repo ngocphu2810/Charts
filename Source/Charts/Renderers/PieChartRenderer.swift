@@ -493,7 +493,7 @@ open class PieChartRenderer: DataRenderer
                         if let image = pe?.image {
                             var text = valueText
                             if let title = pe?.title, !title.isEmpty {
-                                text = "\(title)\n\(valueText)"
+                                text = "\(title)\n \(valueText)"
                             }
                             ChartUtils.drawText(
                                 context: context,

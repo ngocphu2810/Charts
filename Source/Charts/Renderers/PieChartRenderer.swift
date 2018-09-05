@@ -491,9 +491,13 @@ open class PieChartRenderer: DataRenderer
                     else if drawYOutside
                     {
                         if let image = pe?.image {
+                            var text = valueText
+                            if let title = pe?.title, !title.isEmpty {
+                                text = "\(title)\n\(valueText)"
+                            }
                             ChartUtils.drawText(
                                 context: context,
-                                text: valueText,
+                                text: text,
                                 point: CGPoint(x: labelPoint.x + (sliceXBase * 10), y: (labelPoint.y + lineHeight / 2.0) + (sliceYBase * 10)),
                                 align: align,
                                 attributes: [NSAttributedStringKey.font: valueFont, NSAttributedStringKey.foregroundColor: valueTextColor]
